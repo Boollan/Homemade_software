@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "苹果手机 黑心商家�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "账户登陆系统", "账户登陆系统\账户登陆系统.csproj", "{9E63F102-3BE8-4679-A10E-01C19F85E0F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "可爱扭蛋项目", "权限系统管理\可爱扭蛋项目.csproj", "{53FC49EE-2292-4428-91F0-9AE1F350508D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cute gashapon", "权限系统管理\Cute gashapon.csproj", "{53FC49EE-2292-4428-91F0-9AE1F350508D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,5 +45,9 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E53A27E6-FF3C-4B6E-849F-AFC54E54FE86}
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 EndGlobal
