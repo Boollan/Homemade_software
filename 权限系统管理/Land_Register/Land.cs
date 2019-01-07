@@ -33,7 +33,7 @@ namespace 权限系统管理
 
         public static string name ;
 
-
+        
         SqlUser SQLUSER = new SqlUser();
 
         private void button1_Click(object sender, EventArgs e)
@@ -64,7 +64,7 @@ namespace 权限系统管理
                     }
                     else
                     {
-                        MessageBox.Show("您注册的名称已存在,请更名后在注册", "温馨提示");
+                        MessageBox.Show("用户名不存在请先注册", "温馨提示");
                     }
                 }
             }

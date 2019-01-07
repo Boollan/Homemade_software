@@ -9,7 +9,7 @@ namespace 权限系统管理
     class SqlUser
     {
         /*查询和修改数据表 连接*/
-        public string Server_user = "1";
+        public string Server_user = ".";
         public string user_user = "Boollan";
         public string pwd_user = "3838538";
         public string database_user = "Boollan";

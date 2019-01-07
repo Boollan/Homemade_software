@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "账户登陆系统", "账�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cute gashapon", "权限系统管理\Cute gashapon.csproj", "{53FC49EE-2292-4428-91F0-9AE1F350508D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cute gashapon CDK SYSTEM", "cute gashapon CDK SYSTEM\cute gashapon CDK SYSTEM.csproj", "{670BEE5D-46DD-4B2E-BE38-21B602B469E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,15 +41,15 @@ Global
 		{53FC49EE-2292-4428-91F0-9AE1F350508D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53FC49EE-2292-4428-91F0-9AE1F350508D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53FC49EE-2292-4428-91F0-9AE1F350508D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{670BEE5D-46DD-4B2E-BE38-21B602B469E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{670BEE5D-46DD-4B2E-BE38-21B602B469E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{670BEE5D-46DD-4B2E-BE38-21B602B469E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{670BEE5D-46DD-4B2E-BE38-21B602B469E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E53A27E6-FF3C-4B6E-849F-AFC54E54FE86}
-	EndGlobalSection
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 EndGlobal
