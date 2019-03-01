@@ -178,6 +178,7 @@
             this.Name = "Land";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Land";
+            this.Load += new System.EventHandler(this.Land_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

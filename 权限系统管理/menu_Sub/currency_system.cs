@@ -13,6 +13,7 @@ namespace 权限系统管理
 {
     public partial class currency_system : Form
     {
+     
         public currency_system()
         {
             InitializeComponent();
@@ -73,7 +74,7 @@ namespace 权限系统管理
 
         private void button_yes_user_Click(object sender, EventArgs e)//用户点击了查询
         {
-            if (textBoxsuer_cusy.Text.Trim() != "" && textBoxsuer_cusy.Text.Length < 10)
+            if (textBoxsuer_cusy.Text.Trim() != "" && textBoxsuer_cusy.Text.Length < 20)
             {
 
                 try

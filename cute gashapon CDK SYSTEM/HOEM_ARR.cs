@@ -10,6 +10,10 @@ namespace cute_gashapon_CDK_SYSTEM
     {
         /*SQL user*/
         private static string sql = "Server=.;user=Boollan;pwd=3838538;database=Boollan";
+        /*SQL名称*/
+        private static string lable = "Boollan";
+
+        /*end*/
         /*账户数据*/
         private static string user;//账户名
         private static string pwd;//密码

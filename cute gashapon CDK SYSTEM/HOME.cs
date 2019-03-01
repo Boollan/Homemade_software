@@ -60,14 +60,14 @@ namespace cute_gashapon_CDK_SYSTEM
                 using (SqlConnection sqlcon = new SqlConnection(HOEM_ARR.Sql))
                 {
                     sqlcon.Open();
-                    SqlCommand Sqlcom = new SqlCommand("select * from Boollan003 where name='" + HOEM_ARR.User + "'", sqlcon);
+                    SqlCommand Sqlcom = new SqlCommand("select * from usertable where username='" + HOEM_ARR.User + "'", sqlcon);
                     SqlDataReader Sdr = Sqlcom.ExecuteReader();
                     if (Sdr.Read())
                     {
-                        HOEM_ARR.User = Sdr.GetString(Sdr.GetOrdinal("name"));
-                        HOEM_ARR.Pwd = Sdr.GetString(Sdr.GetOrdinal("password"));
+                        HOEM_ARR.User = Sdr.GetString(Sdr.GetOrdinal("username"));
+                        HOEM_ARR.Pwd = Sdr.GetString(Sdr.GetOrdinal("pwd"));
                         HOEM_ARR.Grd = Sdr.GetString(Sdr.GetOrdinal("grade"));
-                        HOEM_ARR.Gmgrd = Sdr.GetString(Sdr.GetOrdinal("gmgrade"));
+                        HOEM_ARR.Gmgrd = Sdr.GetString(Sdr.GetOrdinal("administrator"));
                         HOEM_ARR.Cuy = Sdr.GetString(Sdr.GetOrdinal("currency"));
 
                         textBox_cuy_user_home.Text = HOEM_ARR.User;

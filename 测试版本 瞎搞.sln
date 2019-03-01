@@ -15,6 +15,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cute gashapon", "权限系�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cute gashapon CDK SYSTEM", "cute gashapon CDK SYSTEM\cute gashapon CDK SYSTEM.csproj", "{670BEE5D-46DD-4B2E-BE38-21B602B469E2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cute debug", "cute debug\cute debug.csproj", "{CD16549A-CD28-4E04-B3DF-C7778FEDA336}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "打开文件获取路径", "打开文件获取路径\打开文件获取路径.csproj", "{F4A80C46-BE7E-4B8E-A50A-65244989F46F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cute AD System", "cute AD System\cute AD System.csproj", "{E03D482E-1C04-463C-9E44-A2771103719A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +51,18 @@ Global
 		{670BEE5D-46DD-4B2E-BE38-21B602B469E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{670BEE5D-46DD-4B2E-BE38-21B602B469E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{670BEE5D-46DD-4B2E-BE38-21B602B469E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD16549A-CD28-4E04-B3DF-C7778FEDA336}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD16549A-CD28-4E04-B3DF-C7778FEDA336}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD16549A-CD28-4E04-B3DF-C7778FEDA336}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD16549A-CD28-4E04-B3DF-C7778FEDA336}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4A80C46-BE7E-4B8E-A50A-65244989F46F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4A80C46-BE7E-4B8E-A50A-65244989F46F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4A80C46-BE7E-4B8E-A50A-65244989F46F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4A80C46-BE7E-4B8E-A50A-65244989F46F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E03D482E-1C04-463C-9E44-A2771103719A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E03D482E-1C04-463C-9E44-A2771103719A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E03D482E-1C04-463C-9E44-A2771103719A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E03D482E-1C04-463C-9E44-A2771103719A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
