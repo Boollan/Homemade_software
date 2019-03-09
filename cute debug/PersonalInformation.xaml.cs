@@ -42,7 +42,20 @@ namespace cute_debug
         //加载
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            //同步数据
             ClassSQL.SQLpersonadata(data.Username);
+
+            //个人资料的加载
+            this.lable_inf_name.Content = data.Name.ToString();
+            this.lable_inf_mail.Content = data.Mail.ToString();
+            this.lable_inf_birthday.Content = data.Birthday.ToString();
+            this.lable_inf_pro.Content = data.Profession.ToString();
+            this.lable_inf_countries.Content = data.Country.ToString();
+            this.lable_inf_phone.Content = data.Phone.ToString();
+
+
+
+            //
             this.name.Text = data.Name.ToString();
             this.birthday.Text = data.Birthday.ToString();
             this.mail.Text = data.Mail.ToString();
@@ -64,11 +77,35 @@ namespace cute_debug
                 this.por.IsEnabled = true;
                 this.Country.IsEnabled = true;
                 this.phone.IsEnabled = true;
+
+                this.lable_inf_name.Visibility = Visibility.Hidden;
+                this.lable_inf_mail.Visibility = Visibility.Hidden;
+                this.lable_inf_birthday.Visibility = Visibility.Hidden;
+                this.lable_inf_countries.Visibility = Visibility.Hidden;
+                this.lable_inf_pro.Visibility = Visibility.Hidden;
+                this.lable_inf_phone.Visibility = Visibility.Hidden;
                 this.edit.Content = "保存";
-                
+
+
             }
             else
             {
+
+
+                this.lable_inf_name.Content = this.name.Text.ToString();
+                this.lable_inf_mail.Content = this.mail.Text.ToString();
+                this.lable_inf_birthday.Content = this.birthday.Text.ToString();
+                this.lable_inf_pro.Content = this.por.Text.ToString();
+                this.lable_inf_countries.Content = this.Country.Text.ToString();
+                this.lable_inf_phone.Content = this.phone.Text.ToString();
+
+                this.lable_inf_name.Visibility = Visibility.Visible;
+                this.lable_inf_mail.Visibility = Visibility.Visible;
+                this.lable_inf_birthday.Visibility = Visibility.Visible;
+                this.lable_inf_countries.Visibility = Visibility.Visible;
+                this.lable_inf_pro.Visibility = Visibility.Visible;
+                this.lable_inf_phone.Visibility = Visibility.Visible;
+
                 this.name.IsEnabled = false;
                 this.mail.IsEnabled = false;
                 this.birthday.IsEnabled = false;

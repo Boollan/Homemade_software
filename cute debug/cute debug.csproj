@@ -24,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -62,9 +63,15 @@
     <Compile Include="account.xaml.cs">
       <DependentUpon>account.xaml</DependentUpon>
     </Compile>
+    <Compile Include="background_system.xaml.cs">
+      <DependentUpon>background_system.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ClassSQL.cs" />
     <Compile Include="data.cs" />
     <Compile Include="Interaction.cs" />
+    <Compile Include="kami_Sytem.xaml.cs">
+      <DependentUpon>kami_Sytem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="message.cs" />
     <Compile Include="PersonalInformation.xaml.cs">
       <DependentUpon>PersonalInformation.xaml</DependentUpon>
@@ -76,6 +83,14 @@
       <DependentUpon>resetpwd.xaml</DependentUpon>
     </Compile>
     <Page Include="account.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="background_system.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="kami_Sytem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -147,6 +162,8 @@
     <Resource Include="image\cdk.png" />
     <Resource Include="image\LOGO.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="image\account_logo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

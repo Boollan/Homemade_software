@@ -42,6 +42,7 @@ namespace cute_debug
             textbox_gred.Text = data.Grade.ToString();
             textbox_currency.Text = data.Currency.ToString();
             textbox_GM.Text = data.Administrator.ToString();
+            textbox_vip.Text = data.Vip.ToString();
             /**/
         }
 
@@ -59,6 +60,15 @@ namespace cute_debug
             this.Hide();
             account account = new account();
             account.Show();
+        }
+
+        //卡密系统
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            kami_Sytem kami_Sytem = new kami_Sytem();
+            kami_Sytem.Show();
+            this.Hide();
+
         }
     }
 }

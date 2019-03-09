@@ -29,6 +29,12 @@
         <Button x:Name="edit" Content="编辑" HorizontalAlignment="Left" Margin="179,208,0,0" Grid.Row="2" VerticalAlignment="Top" Width="83" BorderThickness="0" Height="24" Background="#FF4D7FC7" Foreground="White" Click="Button_Click_1"/>
         <Button Content="返回" HorizontalAlignment="Left" Margin="86,208,0,0" Grid.Row="2" VerticalAlignment="Top" Width="83" BorderThickness="0" Height="24" Background="#FF4D7FC7" Foreground="White" Click="Button_Click"/>
         <Image Source="image/bakce_1.png"  Height="100" VerticalAlignment="Top" Stretch="UniformToFill"/>
+        <Label x:Name="lable_inf_name" Content="" Margin="142,31,0,0" Grid.Row="2" Background="#FF4D7FC7" Foreground="White" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120" BorderBrush="Black" IsEnabled="False"/>
+        <Label x:Name="lable_inf_mail" Content="" Margin="142,59,0,0" Grid.Row="2" Background="#FF4D7FC7" Foreground="White" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120" BorderBrush="Black" IsEnabled="False"/>
+        <Label x:Name="lable_inf_birthday" Content="" Margin="142,87,0,0" Grid.Row="2" Background="#FF4D7FC7" Foreground="White" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120" BorderBrush="Black" IsEnabled="False"/>
+        <Label x:Name="lable_inf_pro" Content="" Margin="142,115,0,0" Grid.Row="2" Background="#FF4D7FC7" Foreground="White" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120" BorderBrush="Black" IsEnabled="False"/>
+        <Label x:Name="lable_inf_countries" Content="" Margin="142,143,0,0" Grid.Row="2" Background="#FF4D7FC7" Foreground="White" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120" BorderBrush="Black" IsEnabled="False"/>
+        <Label x:Name="lable_inf_phone" Content="" Margin="142,171,0,0" Grid.Row="2" Background="#FF4D7FC7" Foreground="White" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120" BorderBrush="Black" IsEnabled="False"/>
 
     </Grid>
 </Window>

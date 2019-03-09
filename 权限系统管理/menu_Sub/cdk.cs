@@ -85,7 +85,9 @@ namespace 权限系统管理
             
             
         }
+
         private Point mousePoint = new Point();
+
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             base.OnMouseDown(e);

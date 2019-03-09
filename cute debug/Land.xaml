@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cute_debug"
         mc:Ignorable="d"
-        Title="登录" Background="White" Height="416.31" Width="519.652" Icon="image/icon.png" Closed="Window_Closed" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+        Title="登录" MinHeight="416.31" MinWidth="519.652" MaxWidth="519.652" MaxHeight="416.31" Background="White" Height="416.31" Width="519.652" Icon="image/icon.png" Closed="Window_Closed" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="36*"/>
@@ -18,8 +18,8 @@
         <TextBox x:Name="textbox_user" HorizontalAlignment="Left" Height="23" Margin="99,95,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="14" Background="{x:Null}"/>
         <PasswordBox x:Name="textbox_passwrod" HorizontalAlignment="Left" Margin="99,127,0,0" VerticalAlignment="Top" Width="119" Height="23" Background="White"/>
         <Label x:Name="label_pwd" Content="用户名：" HorizontalAlignment="Left" Margin="26,95,0,0" VerticalAlignment="Top" Height="25" Width="60" FontSize="14"/>
-        <Label x:Name="label_pwd_Copy"  Content="账 号：" HorizontalAlignment="Left" Margin="36,125,0,0" VerticalAlignment="Top" Height="25" Width="50" FontSize="14"/>
-        <Image x:Name="image_ad" HorizontalAlignment="Left" Height="122" VerticalAlignment="Top" Width="257" Source="image/logo.png" Stretch="UniformToFill" Grid.Column="1" Margin="0,0,-1,0" />
+        <Label x:Name="label_pwd_Copy"  Content="密码：" HorizontalAlignment="Left" Margin="36,125,0,0" VerticalAlignment="Top" Height="34" Width="50" FontSize="14"/>
+        <Image x:Name="image_ad" Height="122" VerticalAlignment="Top" Source="image/logo.png" Stretch="UniformToFill" Grid.Column="1" Margin="0,0,-1,0" />
         <Label x:Name="label_ad" Content="广告投放!" Grid.Column="1" HorizontalAlignment="Left" Margin="0,122,-1,0" VerticalAlignment="Top" Width="257" Height="26"/>
         <Label x:Name="label_mail" Content="欢迎投放联系emall:wyzaoz@163.com" Grid.Column="1" HorizontalAlignment="Left" Margin="0,148,-1,0" VerticalAlignment="Top" Width="257" Height="26"/>
         <Button x:Name="button_land" Content="登录" Margin="100,183,0,0" FontSize="14" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Width="119" Click="Button_land_Click"/>

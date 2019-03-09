@@ -13,9 +13,11 @@ namespace cute_debug
         private static int _grade;
         private static int _currency;
         private static int _administrator;
+        private static int _vip;
 
 
         /*基本信息属性*/
+        
         public static string Username
         {
             get
@@ -27,7 +29,7 @@ namespace cute_debug
             {
                 _username = value;
             }
-        }
+        }//用户名
 
         public static int Currency
         {
@@ -44,7 +46,7 @@ namespace cute_debug
                 }
                 
             }
-        }
+        }//余额
 
         public static int Administrator
         {
@@ -61,7 +63,7 @@ namespace cute_debug
 
                 }
             }
-        }
+        }//管理员等级
 
         public static int Grade
         {
@@ -74,9 +76,20 @@ namespace cute_debug
             {
                 _grade = value;
             }
-        }
+        }//等级
         /*end*/
+        public static int Vip
+                {
+                    get
+                    {
+                        return _vip;
+                    }
 
+                    set
+                    {
+                        _vip = value;
+                    }
+                }//会员等级
         //个人资料
         private static string _name;
         private static string _birthday;
@@ -164,8 +177,6 @@ namespace cute_debug
             }
         }
 
-
-
-
+        
     }
 }

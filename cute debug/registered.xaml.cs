@@ -72,7 +72,7 @@ namespace cute_debug
         //注册邮箱获取验证码
         private void Mail_verification_Click(object sender, RoutedEventArgs e)
         {
-            ClassSQL.SendEmail(this.textbox_mail.Text.Trim(), "我们已收到您的注册请求 您的验证码已在邮箱内", Interaction.retpwd(),"感谢注册成为会员");
+            ClassSQL.SendEmail(this.textbox_mail.Text.Trim(), "我们已收到您的注册请求 您的验证码已在邮箱内","我们已收到您的注册请求，感谢您成为我们的一员，软件开发还在测试阶段 作者：Boollan bug反馈邮箱：wyzaoz@163.com \n"+Interaction.retpwd(),"感谢注册成为会员");
             System.Windows.Forms.MessageBox.Show("验证码发送成功","系统提示");
         }
     }

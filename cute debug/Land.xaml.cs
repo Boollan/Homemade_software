@@ -69,8 +69,18 @@ namespace cute_debug
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //创建所需数据表
-            //ClassSQL.SQLcon();
+            
+            ClassSQL.SQLcon();//创建user数据存储表
+            ClassSQL.cdk_account();//创建CDK数据存储表
+            ClassSQL.SQLpersonatable();//创建资料表
+            ClassSQL.user_vip_sql();//创建vip数据表
+            ///ClassSQL.Value_added_services();//创建增值业务物品数据表
+            
+
+
+
         }
+
 
         private void Button_resetpwd_Click(object sender, RoutedEventArgs e)
         {

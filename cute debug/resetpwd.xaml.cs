@@ -27,10 +27,10 @@ namespace cute_debug
         //获取中验证码
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ClassSQL.SendEmail(this.mailend.Text.Trim(), "我们已收到您的密码重置请求 您的验证码已在邮件内容中请注意查收", Interaction.retpwd(),"重置密码");
+            ClassSQL.SendEmail(this.mailend.Text.Trim(), "我们已收到您的密码重置请求 您的验证码已在邮件内容中请注意查收", "我们已收到您的密码重置请求,您的验证码已在邮件内容中请注意查收.软件开发还在测试阶段 作者：Boollan bug反馈邮箱：wyzaoz@163.com \n" + Interaction.retpwd(),"重置密码");
             mailer.IsEnabled = true;
             res_yes.IsEnabled = true;
-            System.Windows.Forms.MessageBox.Show("邮件发送成功\n请查看邮箱","系统提示");
+            System.Windows.Forms.MessageBox.Show("重置邮箱发送成功\n请查看邮箱","系统提示");
 
         }
 
@@ -61,9 +61,9 @@ namespace cute_debug
         //重置密码
         private void Yes_Click(object sender, RoutedEventArgs e)
         {
-            if (ClassSQL.Password_change(this.username.Text.Trim(), this.passsword.Text.Trim())==true)
+            if (ClassSQL.Password_reset(this.username.Text.Trim(), this.passsword.Text.Trim())==true)
             {
-                System.Windows.Forms.MessageBox.Show("密码更改成功");
+                System.Windows.Forms.MessageBox.Show("重置密码成功");
                  this.lable_username.Visibility = Visibility.Hidden;
                 this.lable_password.Visibility = Visibility.Hidden;
                 this.username.Visibility = Visibility.Hidden;
@@ -74,7 +74,7 @@ namespace cute_debug
             }
             else
             {
-                System.Windows.Forms.MessageBox.Show("更改密码失败");
+                System.Windows.Forms.MessageBox.Show("重置密码失败");
             }
             
 
