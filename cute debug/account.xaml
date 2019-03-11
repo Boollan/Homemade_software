@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cute_debug"
         mc:Ignorable="d"
-        Title="账号系统" Icon="image\LOGO.png" Height="393.408" Width="561.765" Background="White" Closed="Window_Closed" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+        Title="账号系统" Icon="image\icon.png" Height="393.408" Width="561.765" Background="White" Closed="Window_Closed" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50*"/>
@@ -28,7 +28,7 @@
             <MenuItem Header="开通VIP" Foreground="Violet" Height="24" Width="99" BorderBrush="Black" Click="MenuItem_Click_2"/>
 
         </Menu>
-        <Button Content="返回菜单" HorizontalAlignment="Left" Margin="359,1,0,0" VerticalAlignment="Top" Width="92" Height="42" Grid.Column="1" Background="#FF5F93DE" Foreground="White" Click="Button_Click_2" Grid.RowSpan="2"/>
+        <Button Content="返回菜单" HorizontalAlignment="Left" Margin="359,1,0,0" VerticalAlignment="Top" Width="92" Height="40" Grid.Column="1" Background="#FF5F93DE" Foreground="White" Click="Button_Click_2"/>
         <Grid x:Name="Grid_Password_change" Margin="5,5,-1,0" Grid.Row="1" Grid.Column="1" IsEnabled="False" Visibility="Hidden">
             <TextBox x:Name="textbox_account_username" HorizontalAlignment="Left" Height="23" Margin="150,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="White" IsEnabled="False"/>
             <PasswordBox x:Name="textbox_account_Thepassword" HorizontalAlignment="Left" Height="23" Margin="150,67,0,0"  VerticalAlignment="Top" Width="120" Background="White"/>

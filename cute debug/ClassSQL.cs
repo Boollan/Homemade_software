@@ -14,9 +14,9 @@ namespace cute_debug
     {
 
         /*连接数据库参数*/
-        private static string SQL_Server = "BOOLLAN-PC";
+        private static string SQL_Server = "DESKTOP-B5OFDSP";
         private static string SQL_User = "Boollan";
-        private static string SQL_Pwd = "3838538";
+        private static string SQL_Pwd = "3838538+.";
         private static string SQL_Database = "Boollan";
         //连接字符串
         private static string sqlconstr = "Server=" + SQL_Server + ";user=" + SQL_User + ";pwd=" + SQL_Pwd + ";database=" + SQL_Database + "";

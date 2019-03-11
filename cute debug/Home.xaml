@@ -19,14 +19,14 @@
             <RowDefinition Height="23*"/>
             <RowDefinition Height="358*"/>
         </Grid.RowDefinitions>
-        <Canvas Grid.Row="0" Background="#FF252526" HorizontalAlignment="Left" Height="50" Margin="0,0,-8,0" VerticalAlignment="Top" Width="800" Grid.ColumnSpan="5" Grid.RowSpan="2">
+        <Canvas Grid.Row="0" Background="#FF252526" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="792" Grid.ColumnSpan="4" Grid.RowSpan="2">
             <Button Content="个人资料" FontFamily="微软雅黑" FontSize="11" Foreground="#FF569CD6" Background="#FF252526" Canvas.Left="0" Canvas.Top="0" Width="110" Height="40" Click="Button_Click"/>
             <Button Content="账号系统" FontFamily="微软雅黑" FontSize="11" Canvas.Left="110" Canvas.Top="0" Width="118" Height="40" Background="#FF252526" Foreground="#FF569CD6" Click="Button_Click_1"/>
             <Button Content="扭蛋游戏" FontFamily="微软雅黑" FontSize="11" Canvas.Left="228" Canvas.Top="0" Width="110" Height="40" Background="#FF252526" Foreground="#FF569CD6"/>
             <Button Content="卡密系统" FontFamily="微软雅黑" FontSize="11" Canvas.Left="338" Canvas.Top="0" Width="118" Height="40" Background="#FF252526" Foreground="#FF569CD6" Click="Button_Click_2"/>
             <Button Content="玩家等级系统" FontFamily="微软雅黑" FontSize="11" Canvas.Left="456" Canvas.Top="0" Width="105" Height="40" Background="#FF252526" Foreground="#FF569CD6"/>
-            <Button Content="后台系统" FontFamily="微软雅黑" FontSize="11" Canvas.Left="561" Canvas.Top="0" Width="123" Height="40" Background="#FF252526" Foreground="#FF569CD6"/>
-            <Button Content="数据管理" FontFamily="微软雅黑" FontSize="11" Canvas.Left="684" Canvas.Top="0" Width="106" Height="40" Background="#FF252526" Foreground="#FF569CD6"/>
+            <Button Content="后台系统" FontFamily="微软雅黑" FontSize="11" Canvas.Left="561" Canvas.Top="0" Width="123" Height="40" Background="#FF252526" Foreground="#FF569CD6" Click="Button_Click_3"/>
+            <Button Content="数据管理" FontFamily="微软雅黑" FontSize="11" Canvas.Left="684" Canvas.Top="0" Width="108" Height="40" Background="#FF252526" Foreground="#FF569CD6"/>
         </Canvas>
         <Canvas Grid.Column="1" Background="White" Grid.Row="2">
             <Label  Content="账号:" FontSize="14" Canvas.Left="27" Canvas.Top="75" RenderTransformOrigin="1.976,0.714"/>
@@ -67,7 +67,7 @@
         <Canvas Grid.Column="3" Background="White" Grid.Row="2">
             <Image Height="359" Width="231" Source="image/icon.png"/>
         </Canvas>
-        <Canvas Grid.Row="1" Background="#FFFFFF" Grid.ColumnSpan="5" Margin="0,0,-8,0">
+        <Canvas Grid.Row="1" Background="#FFFFFF" Grid.ColumnSpan="4">
             <Label Grid.Row="1"  HorizontalContentAlignment="Center" Content="请谨慎操作道具物品数据 否则概不负责" Canvas.Top="0" Height="23" Width="790" AutomationProperties.IsOffscreenBehavior="Onscreen"/>
         </Canvas>
 

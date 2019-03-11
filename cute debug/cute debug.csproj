@@ -63,6 +63,9 @@
     <Compile Include="account.xaml.cs">
       <DependentUpon>account.xaml</DependentUpon>
     </Compile>
+    <Compile Include="backend_system.xaml.cs">
+      <DependentUpon>backend_system.xaml</DependentUpon>
+    </Compile>
     <Compile Include="background_system.xaml.cs">
       <DependentUpon>background_system.xaml</DependentUpon>
     </Compile>
@@ -83,6 +86,10 @@
       <DependentUpon>resetpwd.xaml</DependentUpon>
     </Compile>
     <Page Include="account.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="backend_system.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -164,6 +171,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="image\account_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <SplashScreen Include="SplashScreenlog.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
