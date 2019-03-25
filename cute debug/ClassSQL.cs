@@ -7,6 +7,10 @@ using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Net.Mail;
 using System.Text;
+using System.Net.Sockets;
+using System.Net;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace cute_debug
 {
@@ -26,6 +30,17 @@ namespace cute_debug
         private static string smtpServer = "smtp.163.com"; //SMTP服务器
         private static string mailFrom = "wyzaoz@163.com"; //登陆用户名
         private static string userPassword = "xiaowei123";//登陆密码
+
+        //通信地址的IP
+        private static string Ip = "127.0.0.1";
+        private static int port = 8885;
+        //设置容量
+        private static byte[] result1 = new byte[1024];
+        private static byte[] result2 = new byte[1024];
+
+
+        //设置端口
+        private static int myProt = 8885;   //端口
 
         //创建用户信息表
         public static void SQLcon()
@@ -58,7 +73,7 @@ namespace cute_debug
         //提交注册信息
         public static int SQLregiste(string username, string password, string mail)
         {
-            
+
             using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
             {
                 sqlcon.Open();
@@ -70,9 +85,9 @@ namespace cute_debug
                     sqlData.Close();
                     SqlCommand sqlcomselect1 = new SqlCommand("select * from usertable where mail='" + mail + "'", sqlcon);
                     SqlDataReader sqlData1 = sqlcomselect1.ExecuteReader();
-                    if (sqlData1.Read()==false)
+                    if (sqlData1.Read() == false)
                     {
-                        
+
                         sqlData1.Close();
 
                         //插入基本信息数据
@@ -83,7 +98,7 @@ namespace cute_debug
                         sqlCommand.ExecuteNonQuery();
                         //添加VIP默认数据表
                         DateTime dateTime_vip = new DateTime(1999, 1, 1, 00, 00, 00);
-                        SqlCommand sqlcom_vip = new SqlCommand("insert user_vip(username,vip_level,vip_Expiration_time)values('" + username + "','0','" + dateTime_vip.ToLongTimeString() +"')", sqlcon);
+                        SqlCommand sqlcom_vip = new SqlCommand("insert user_vip(username,vip_level,vip_Expiration_time)values('" + username + "','0','" + dateTime_vip.ToLongTimeString() + "')", sqlcon);
                         sqlcom_vip.ExecuteNonQuery();
                         return 100;
                     }
@@ -234,10 +249,10 @@ namespace cute_debug
         //个人资料编辑
         public static bool SQLpersonaDataediting()
         {
-            using (SqlConnection sqlcon=new SqlConnection(sqlconstr))
+            using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
             {
                 sqlcon.Open();
-                SqlCommand sqlcomname = new SqlCommand("update information set name='"+data.Name.ToString()+"' where username='"+data.Username.ToString()+"'", sqlcon);
+                SqlCommand sqlcomname = new SqlCommand("update information set name='" + data.Name.ToString() + "' where username='" + data.Username.ToString() + "'", sqlcon);
                 SqlCommand sqlcommail = new SqlCommand("update information set mail='" + data.Mail.ToString() + "' where username='" + data.Username.ToString() + "'", sqlcon);
                 SqlCommand sqlcombirthday = new SqlCommand("update information set birthday='" + data.Birthday.ToString() + "' where username='" + data.Username.ToString() + "'", sqlcon);
                 SqlCommand sqlcomprofession = new SqlCommand("update information set profession='" + data.Profession.ToString() + "' where username='" + data.Username.ToString() + "'", sqlcon);
@@ -264,7 +279,7 @@ namespace cute_debug
         /// <param name="mailContent">邮箱内容</param>
         /// <param name="mailname">邮件名称</param>
         /// <returns>返回发送邮箱的结果</returns>
-        public static bool SendEmail(string mailTo, string mailSubject, string mailContent,string mailname)
+        public static bool SendEmail(string mailTo, string mailSubject, string mailContent, string mailname)
         {
             // 邮件服务设置
             SmtpClient smtpClient = new SmtpClient();
@@ -279,8 +294,8 @@ namespace cute_debug
             mailMessage.BodyEncoding = Encoding.UTF8;//正文编码
             mailMessage.IsBodyHtml = true;//设置为HTML格式
             mailMessage.Priority = MailPriority.Low;//优先级
-            mailMessage.From = new MailAddress(mailname+"<wyzaoz@163.com>");
-            
+            mailMessage.From = new MailAddress(mailname + "<wyzaoz@163.com>");
+
             try
             {
                 smtpClient.Send(mailMessage); // 发送邮件
@@ -301,20 +316,20 @@ namespace cute_debug
         //获取邮箱的当前用户名
         public static string mail_user(string mail)
         {
-            using (SqlConnection sqlcon =new SqlConnection(sqlconstr))
+            using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
             {
                 sqlcon.Open();
-                SqlCommand sqlcom = new SqlCommand("select * from usertable where mail='"+mail+"'", sqlcon);
+                SqlCommand sqlcom = new SqlCommand("select * from usertable where mail='" + mail + "'", sqlcon);
                 SqlDataReader sqlData = sqlcom.ExecuteReader();
-                if (sqlData.Read()==true)
+                if (sqlData.Read() == true)
                 {
-                  string username_reg  =  sqlData.GetString(sqlData.GetOrdinal("username"));
+                    string username_reg = sqlData.GetString(sqlData.GetOrdinal("username"));
 
-                   return  username_reg;
+                    return username_reg;
                 }
                 else
                 {
-                    return"";
+                    return "";
                 }
             }
         }
@@ -326,19 +341,19 @@ namespace cute_debug
         /// <param name="pwd">新的密码</param>
         /// <returns></returns>
         //重置密码
-        public static  bool Password_reset(string username ,string pwd)
+        public static bool Password_reset(string username, string pwd)
         {
-            using (SqlConnection sqlcon =new SqlConnection(sqlconstr))
+            using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
             {
                 sqlcon.Open();
-                SqlCommand sqlcom = new SqlCommand("select * from usertable where username='"+username+"'", sqlcon);
+                SqlCommand sqlcom = new SqlCommand("select * from usertable where username='" + username + "'", sqlcon);
                 SqlDataReader sqlData = sqlcom.ExecuteReader();
-                if (sqlData.Read()==true)
+                if (sqlData.Read() == true)
                 {
                     sqlcom.Clone();
                     sqlData.Close();
 
-                    SqlCommand sqlCommand = new SqlCommand("update usertable set pwd='"+pwd+"' where username='"+username+"'", sqlcon);
+                    SqlCommand sqlCommand = new SqlCommand("update usertable set pwd='" + pwd + "' where username='" + username + "'", sqlcon);
                     sqlCommand.ExecuteNonQuery();
                     return true;
                 }
@@ -377,12 +392,12 @@ namespace cute_debug
         /// <param name="username">用户名</param>
         /// <returns></returns>
         //验证CDK 
-        public static bool cdk_pay(string cdk,string username)
+        public static bool cdk_pay(string cdk, string username)
         {
-            using(SqlConnection sqlcon =new SqlConnection(sqlconstr))
+            using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
             {
                 sqlcon.Open();
-                SqlCommand sqlcom = new SqlCommand("select * from cdktable where cdk='"+cdk+"'", sqlcon);
+                SqlCommand sqlcom = new SqlCommand("select * from cdktable where cdk='" + cdk + "'", sqlcon);
                 SqlDataReader sqlData = sqlcom.ExecuteReader();
                 if (sqlData.Read())
                 {
@@ -390,12 +405,12 @@ namespace cute_debug
                     string payl_effective = sqlData.GetString(sqlData.GetOrdinal("effective"));//获取是否有效
                     string payl_money = sqlData.GetString(sqlData.GetOrdinal("money"));//获取卡密金额
 
-                    if (payl_effective=="1")//判断卡密是否有效
+                    if (payl_effective == "1")//判断卡密是否有效
                     {
-                        SqlCommand sqlcom_effective = new SqlCommand("update cdktable set effective='0' where cdk='"+payl_cdk+"'", sqlcon);//更改卡密为已使用
+                        SqlCommand sqlcom_effective = new SqlCommand("update cdktable set effective='0' where cdk='" + payl_cdk + "'", sqlcon);//更改卡密为已使用
                         sqlData.Close();
                         sqlcom_effective.ExecuteNonQuery();
-                        if(currency_Play(username, payl_money)==true)
+                        if (currency_Play(username, payl_money) == true)
                         {
                             SQLLandpassHome(data.Username.ToString());
                             return true;
@@ -423,18 +438,18 @@ namespace cute_debug
         /// </summary>
         /// <param name="username">用户名</param>
         /// <param name="currency">余额</param>
-        public static bool currency_Play(string username,string currency)
+        public static bool currency_Play(string username, string currency)
         {
             using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
             {
                 sqlcon.Open();//建立连接
-                SqlCommand sqlcom = new SqlCommand("select * from usertable where username='"+username+"'", sqlcon);//查询指定用户名
+                SqlCommand sqlcom = new SqlCommand("select * from usertable where username='" + username + "'", sqlcon);//查询指定用户名
                 SqlDataReader sqlData = sqlcom.ExecuteReader();//存储数据
                 if (sqlData.Read())//判断是否有这个用户
                 {
-                    string currency_temp= sqlData.GetString(sqlData.GetOrdinal("currency"));//获取用户当前余额
+                    string currency_temp = sqlData.GetString(sqlData.GetOrdinal("currency"));//获取用户当前余额
                     string curency_play = Convert.ToString(Convert.ToInt32(currency_temp) + Convert.ToInt32(currency));//余额合并
-                    SqlCommand sqlcom_currency = new SqlCommand("update usertable set currency ='"+curency_play+"' where username='"+username+"'", sqlcon);
+                    SqlCommand sqlcom_currency = new SqlCommand("update usertable set currency ='" + curency_play + "' where username='" + username + "'", sqlcon);
                     sqlData.Close();
                     sqlcom_currency.ExecuteNonQuery();//执行
                     return true;
@@ -455,21 +470,21 @@ namespace cute_debug
         /// <param name="passowrd_low">旧密码</param>
         /// <param name="passowrd">新密码</param>
         /// <returns></returns>
-        public static bool Passowrd_change(string username, string passowrd_low,string passowrd)
+        public static bool Passowrd_change(string username, string passowrd_low, string passowrd)
         {
-            using(SqlConnection sqlcon=new SqlConnection(sqlconstr))//连接数据库
+            using (SqlConnection sqlcon = new SqlConnection(sqlconstr))//连接数据库
             {
                 sqlcon.Open();//建立连接
-                SqlCommand sqlcom = new SqlCommand("select * from usertable where username='"+username+"'", sqlcon);//查询用户
+                SqlCommand sqlcom = new SqlCommand("select * from usertable where username='" + username + "'", sqlcon);//查询用户
                 SqlDataReader sqlData = sqlcom.ExecuteReader();//存储数据
-                if (sqlData.Read()==true)
+                if (sqlData.Read() == true)
                 {
                     string pwd = sqlData.GetString(sqlData.GetOrdinal("pwd"));//获取密码
-                    if (pwd==passowrd_low)//验证旧密码
+                    if (pwd == passowrd_low)//验证旧密码
                     {
                         sqlcom.Clone();
                         sqlData.Close();
-                        SqlCommand sqlcom_passowd = new SqlCommand("update usertable set pwd ='"+passowrd+"' where username='"+username+"'", sqlcon);
+                        SqlCommand sqlcom_passowd = new SqlCommand("update usertable set pwd ='" + passowrd + "' where username='" + username + "'", sqlcon);
                         sqlcom_passowd.ExecuteNonQuery();
                         return true;
                     }
@@ -492,18 +507,18 @@ namespace cute_debug
         /// <param name="cdk">卡密序列号</param>
         /// <param name="money">金额</param>
         /// <returns></returns>
-        public static bool kami_submit(string cdk,string money)
+        public static bool kami_submit(string cdk, string money)
         {
-            using (SqlConnection sqlcon =new SqlConnection(sqlconstr))//连接字符串
+            using (SqlConnection sqlcon = new SqlConnection(sqlconstr))//连接字符串
             {
                 sqlcon.Open();//建立连接
-                SqlCommand sqlcom = new SqlCommand("select * from cdktable where cdk='"+cdk+"'", sqlcon);//查询指定内容
+                SqlCommand sqlcom = new SqlCommand("select * from cdktable where cdk='" + cdk + "'", sqlcon);//查询指定内容
                 SqlDataReader sqlData = sqlcom.ExecuteReader();//存储数据
-                if (sqlData.Read()==false)//判断是否存在这张卡密
+                if (sqlData.Read() == false)//判断是否存在这张卡密
                 {
                     sqlData.Close();
                     //插入cdk指定内容
-                    SqlCommand sqlcom_insert = new SqlCommand("insert cdktable(cdk,effective,money)values('"+cdk+"','1','"+money+"')", sqlcon);
+                    SqlCommand sqlcom_insert = new SqlCommand("insert cdktable(cdk,effective,money)values('" + cdk + "','1','" + money + "')", sqlcon);
                     sqlcom_insert.ExecuteNonQuery();//建立连接并执行
                     return true;
                 }
@@ -541,7 +556,7 @@ namespace cute_debug
         /// </summary>
         /// <param name="username">用户名</param>
         /// <param name="time">开通的天数</param>
-        public static bool VIP_open(string username,DateTime time,string money)
+        public static bool VIP_open(string username, DateTime time, string money)
         {
             using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
             {
@@ -551,7 +566,7 @@ namespace cute_debug
                 if (sqlData.Read())//判断是否有这个用户
                 {
                     string currency_temp = sqlData.GetString(sqlData.GetOrdinal("currency"));//获取用户当前余额
-                    if (Convert.ToInt32(currency_temp)>=Convert.ToInt32(money))
+                    if (Convert.ToInt32(currency_temp) >= Convert.ToInt32(money))
                     {
                         string curency_play = Convert.ToString(Convert.ToInt32(currency_temp) - Convert.ToInt32(money));//余额合并
                         SqlCommand sqlcom_currency = new SqlCommand("update usertable set currency ='" + curency_play + "' where username='" + username + "'", sqlcon);
@@ -560,9 +575,9 @@ namespace cute_debug
 
                         string vip = "1";
                         //更改VIP
-                        SqlCommand sqlcom_vip = new SqlCommand("update user_vip set vip_level='"+vip+"' where username='"+username+"'", sqlcon);
+                        SqlCommand sqlcom_vip = new SqlCommand("update user_vip set vip_level='" + vip + "' where username='" + username + "'", sqlcon);
                         SqlCommand sqlcom_vip_time = new SqlCommand("update user_vip set vip_Expiration_time='" + time + "' where username='" + username + "'", sqlcon);
-                        SqlCommand sqlcom_usertable_vip = new SqlCommand("update usertable set vip='"+vip+"' where username='" + username + "'", sqlcon);
+                        SqlCommand sqlcom_usertable_vip = new SqlCommand("update usertable set vip='" + vip + "' where username='" + username + "'", sqlcon);
 
                         sqlcom_vip_time.ExecuteNonQuery();//执行SQL语句
                         sqlcom_vip.ExecuteNonQuery();//执行SQL语句
@@ -665,12 +680,12 @@ namespace cute_debug
         /// <param name="goodsname">商品名称</param>
         /// <param name="money">商品价格</param>
         /// <param name="good_time">商品的有效时间</param>
-        public static bool insert_Value_added_services(string goodsname,string money,string good_time)
+        public static bool insert_Value_added_services(string goodsname, string money, string good_time)
         {
-            using (SqlConnection sqlcon=new SqlConnection(sqlconstr))
+            using (SqlConnection sqlcon = new SqlConnection(sqlconstr))
             {
                 sqlcon.Open();
-                SqlCommand sqlcom = new SqlCommand("insert Value_added_services(goodsname,money,good_Expiration_time)values('"+goodsname+"','"+money+"','"+good_time+"')", sqlcon);
+                SqlCommand sqlcom = new SqlCommand("insert Value_added_services(goodsname,money,good_Expiration_time)values('" + goodsname + "','" + money + "','" + good_time + "')", sqlcon);
                 sqlcom.ExecuteNonQuery();
                 return true;
             }
@@ -705,5 +720,73 @@ namespace cute_debug
 
             }
         }
+
+        /// <summary>
+        /// 通过服务器发送验证邮件
+        /// </summary>
+        /// <param name="mail">邮箱地址</param>
+        /// <returns>是否为真</returns>
+        public static bool server_key(string mail)
+        {
+            //设定服务器IP地址
+            IPAddress ip = IPAddress.Parse(Ip);//设置IP地址
+            Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);//协议
+            try
+            {
+                clientSocket.Connect(new IPEndPoint(ip, port)); //配置服务器IP与端口
+            }
+            catch
+            {
+
+                return false;
+            }
+            //通过clientSocket接收数据
+            int receiveLength = clientSocket.Receive(result1);
+
+            if (Encoding.UTF8.GetString(result1, 0, receiveLength) == "Online")
+            {
+
+                //通过 clientSocket 发送数据
+
+                try
+                {
+                    //Thread.Sleep(1000);    //等待1秒钟
+                    string sendMessage = mail;
+                    clientSocket.Send(Encoding.UTF8.GetBytes(sendMessage));//发送字符串到服务器
+
+
+
+                    int receiveLength1 = clientSocket.Receive(result1);
+                    string ser = Encoding.UTF8.GetString(result1, 0, receiveLength);
+                    if (Interaction.verification(ser) == true)
+                    {
+                        clientSocket.Close();
+                        clientSocket.Dispose();
+                        System.Windows.Forms.MessageBox.Show(ser, "系统提示");
+                        MessageBox.Show("Test");
+
+                        return true;
+
+                    }
+                    return false;
+
+                }
+                catch
+                {
+
+                    clientSocket.Shutdown(SocketShutdown.Both);
+                    clientSocket.Close();
+
+                }
+
+                return true;
+            }
+            return false;
+
+
+        }
+
+
+        
     }
 }

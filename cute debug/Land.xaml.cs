@@ -55,6 +55,8 @@ namespace cute_debug
         private void Window_Closed(object sender, EventArgs e)
         {
             Environment.Exit(0);
+
+            
         }
 
         //跳转注册界面

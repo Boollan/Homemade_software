@@ -36,7 +36,16 @@ namespace cute_debug
 
         }
 
-        //个人资料保存 传值
+        
+        /// <summary>
+        /// 个人资料保存 传值
+        /// </summary>
+        /// <param name="name">昵称</param>
+        /// <param name="mail">邮箱</param>
+        /// <param name="birthday">出生日期</param>
+        /// <param name="profession">技术专业</param>
+        /// <param name="country">学校</param>
+        /// <param name="phone">手机号</param>
         public static void personapass(string name, string mail, string birthday, string profession, string country, string phone)
         {
             data.Name = name.ToString();
@@ -50,6 +59,10 @@ namespace cute_debug
 
         //找回密码验证码
         static string yzm = "";
+        /// <summary>
+        /// 生成密码验证码
+        /// </summary>
+        /// <returns></returns>
         public static string retpwd()
         {
 
@@ -68,14 +81,23 @@ namespace cute_debug
         }
 
         //验证验证码
+        /// <summary>
+        /// 效验验证码是否有效
+        /// </summary>
+        /// <param name="verif">用户输入的效验码</param>
+        /// <returns></returns>
         public static bool verification(string verif)
         {
+            //判断是否一致 否则不予通过
             if (verif == yzm)
             {
+                //验证成功 返回 true
                 return true;
             }
             else
             {
+                //验证失败 清空效验码
+                yzm = null;
                 return false;
             }
         }

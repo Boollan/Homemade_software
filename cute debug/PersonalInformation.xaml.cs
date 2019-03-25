@@ -27,14 +27,18 @@ namespace cute_debug
         //关闭线程
         private void Window_Closed(object sender, EventArgs e)
         {
+            //结束当前应用程序
             Environment.Exit(0);
         }
 
         //返回
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            //实例化窗口
             Home home = new Home();
+            //显示实例化窗口
             home.Show();
+            //隐藏当前类窗口
             this.Hide();
 
         }
@@ -46,12 +50,19 @@ namespace cute_debug
             ClassSQL.SQLpersonadata(data.Username);
 
             //个人资料的加载
+            //同步"昵称"到文本框
             this.lable_inf_name.Content = data.Name.ToString();
+            //同步"邮箱"到文本框
             this.lable_inf_mail.Content = data.Mail.ToString();
+            //同步"出生日期"到文本框
             this.lable_inf_birthday.Content = data.Birthday.ToString();
+            //同步"技术专业学习"到文本框
             this.lable_inf_pro.Content = data.Profession.ToString();
+            //同步"学校名称"到文本框
             this.lable_inf_countries.Content = data.Country.ToString();
+            //同步"手机号"到文本框
             this.lable_inf_phone.Content = data.Phone.ToString();
+
 
 
 
@@ -71,12 +82,14 @@ namespace cute_debug
 
             if (this.edit.Content.ToString() == "编辑")
             {
+                //界面美化不予注释
                 this.name.IsEnabled = true;
                 this.mail.IsEnabled = true;
                 this.birthday.IsEnabled = true;
                 this.por.IsEnabled = true;
                 this.Country.IsEnabled = true;
                 this.phone.IsEnabled = true;
+                //界面美化不予注释
 
                 this.lable_inf_name.Visibility = Visibility.Hidden;
                 this.lable_inf_mail.Visibility = Visibility.Hidden;
@@ -92,12 +105,14 @@ namespace cute_debug
             {
 
 
+                //界面美化不予注释
                 this.lable_inf_name.Content = this.name.Text.ToString();
                 this.lable_inf_mail.Content = this.mail.Text.ToString();
                 this.lable_inf_birthday.Content = this.birthday.Text.ToString();
                 this.lable_inf_pro.Content = this.por.Text.ToString();
                 this.lable_inf_countries.Content = this.Country.Text.ToString();
                 this.lable_inf_phone.Content = this.phone.Text.ToString();
+                //界面美化不予注释
 
                 this.lable_inf_name.Visibility = Visibility.Visible;
                 this.lable_inf_mail.Visibility = Visibility.Visible;
@@ -105,6 +120,7 @@ namespace cute_debug
                 this.lable_inf_countries.Visibility = Visibility.Visible;
                 this.lable_inf_pro.Visibility = Visibility.Visible;
                 this.lable_inf_phone.Visibility = Visibility.Visible;
+                //界面美化不予注释
 
                 this.name.IsEnabled = false;
                 this.mail.IsEnabled = false;
