@@ -22,7 +22,7 @@
         <Image x:Name="image_ad" Height="122" VerticalAlignment="Top" Source="image/logo.png" Stretch="UniformToFill" Grid.Column="1" Margin="0,0,-1,0" />
         <Label x:Name="label_ad" Content="广告投放!" Grid.Column="1" HorizontalAlignment="Left" Margin="0,122,-1,0" VerticalAlignment="Top" Width="257" Height="26"/>
         <Label x:Name="label_mail" Content="欢迎投放联系emall:wyzaoz@163.com" Grid.Column="1" HorizontalAlignment="Left" Margin="0,148,-1,0" VerticalAlignment="Top" Width="257" Height="26"/>
-        <Button x:Name="button_land" Content="登录" Margin="100,183,0,0" FontSize="14" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Width="119" Click="Button_land_Click"/>
+        <Button x:Name="button_land" Content="登录" Margin="100,183,0,0" FontSize="14" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Width="119" Click="Button_land_Click" IsDefault="True"/>
         <CheckBox x:Name="checkbox_me" Content="记住密码" HorizontalAlignment="Left" Margin="99,163,0,0" VerticalAlignment="Top" FontSize="14" Height="17" Width="76"/>
         <Button x:Name="button_resetpwd" Content="重置密码" HorizontalAlignment="Left" Margin="10,216,0,0" VerticalAlignment="Top" Width="63" Height="26" Click="Button_resetpwd_Click"/>
         <Button x:Name="button_home_registe" Content="注册界面" Margin="10,186,0,0" FontSize="12" FontFamily="Blackadder ITC" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="63" Click="Button_home_registe_Click"/>

@@ -76,8 +76,8 @@ namespace cute_debug
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             backend_system backend_System = new backend_system();
-            this.Hide();
             backend_System.Show();
+            this.Hide();
         }
     }
 }

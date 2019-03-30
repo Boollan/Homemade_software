@@ -33,7 +33,8 @@ namespace cute_debug
                 if (message.messagetext(ClassSQL.SQLregiste(textbox_username.Text, textbox_pwd.Password, textbox_mail.Text))==100)
                 {
                     //提示信息
-                    System.Windows.Forms.MessageBox.Show("注册成功!","系统提示");
+                    
+                    News.NewsText("注册成功","系统提示");
                     /*注册信息文本框清空*/
                     textbox_username.Text=null;
                     textbox_pwd.Password = null;
@@ -87,8 +88,8 @@ namespace cute_debug
         private void Mail_verification_Click(object sender, RoutedEventArgs e)
         {
             //调用邮箱验证码发送类 进行邮箱验证
-            //ClassSQL.SendEmail(this.textbox_mail.Text.Trim(), "我们已收到您的注册请求 您的验证码已在邮箱内","我们已收到您的注册请求，感谢您成为我们的一员，软件开发还在测试阶段 作者：Boollan bug反馈邮箱：wyzaoz@163.com \n"+Interaction.retpwd(),"感谢注册成为会员");
-            ClassSQL.server_key(this.textbox_mail.Text.Trim());
+            ClassSQL.SendEmail(this.textbox_mail.Text.Trim(), "我们已收到您的注册请求 您的验证码已在邮箱内","我们已收到您的注册请求，感谢您成为我们的一员，软件开发还在测试阶段 作者：Boollan bug反馈邮箱：wyzaoz@163.com \n"+Interaction.retpwd(),"感谢注册成为会员");
+            //ClassSQL.server_key(this.textbox_mail.Text.Trim());
             //提示信息
             System.Windows.Forms.MessageBox.Show("验证码发送成功","系统提示");
         }

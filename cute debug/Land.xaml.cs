@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mert;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+
 
 namespace cute_debug
 {
@@ -32,22 +34,44 @@ namespace cute_debug
             {
                 if (message.messagetext(ClassSQL.SQLLandlogin(textbox_user.Text.Trim(), textbox_passwrod.Password.Trim()))==100)
                 {
+                    if (checkbox_me.IsChecked==true)
+                    {
+                       
+                        SettingsUser.Default.Password = ClassSQL.Encrypt(textbox_passwrod.Password.Trim());
+                        SettingsUser.Default.UserName = ClassSQL.Encrypt(textbox_user.Text.Trim());
+                        SettingsUser.Default.Land_IsChecked_User = true;
+                        SettingsUser.Default.Save();
+                    }
+                    else
+                    {
+                        
+                        SettingsUser.Default.Password = null;
+                        SettingsUser.Default.UserName = null;
+                        SettingsUser.Default.Land_IsChecked_User = false;
+                        SettingsUser.Default.Save();
+                    }
+
                     ClassSQL.SQLLandpassHome(textbox_user.Text.Trim());
 
                     Home home = new Home();
                     home.Show();
                     this.Hide();
-                    
-                    
 
+
+
+                }
+                else
+                {
+                    News.NewsText("账号或密码错误！", "系统提示");
                 }
                 
             }
             else
             {
-                message.messagetext(502);
+                News.NewsText("账号或密码错误！", "系统提示");
+
             }
-            
+
 
         }
 
@@ -77,8 +101,17 @@ namespace cute_debug
             ClassSQL.SQLpersonatable();//创建资料表
             ClassSQL.user_vip_sql();//创建vip数据表
             ///ClassSQL.Value_added_services();//创建增值业务物品数据表
-            
+            ClassSQL.SQL_back_system();//创建后台管理
 
+            //验证用户是否记住密码
+            if (SettingsUser.Default.Password.Length > -1 && SettingsUser.Default.Land_IsChecked_User == true)
+            {
+                
+                this.textbox_passwrod.Password = ClassSQL.Decrypt(SettingsUser.Default.Password);
+                this.textbox_user.Text = ClassSQL.Decrypt(SettingsUser.Default.UserName);
+                this.checkbox_me.IsChecked = Convert.ToBoolean(ClassSQL.Decrypt(SettingsUser.Default.Land_IsChecked_User.ToString()));
+
+            }
 
 
         }
@@ -95,5 +128,7 @@ namespace cute_debug
         {
 
         }
+
+
     }
 }

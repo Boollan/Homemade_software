@@ -26,7 +26,6 @@
             <MenuItem Header="账号密码" Foreground="Red" Height="25" Width="99" ClipToBounds="True" SnapsToDevicePixels="True" BorderBrush="Black" Click="MenuItem_Click"/>
             <MenuItem Header="账号充值" Foreground="Violet" Height="24" Width="99" BorderBrush="Black" Click="MenuItem_Click_1"/>
             <MenuItem Header="开通VIP" Foreground="Violet" Height="24" Width="99" BorderBrush="Black" Click="MenuItem_Click_2"/>
-            <MenuItem Header="开通VIP" Foreground="Violet" Height="24" Width="99" BorderBrush="Black" Click="MenuItem_Click_2"/>
 
         </Menu>
         <Button Content="返回菜单" HorizontalAlignment="Left" Margin="359,1,0,0" VerticalAlignment="Top" Width="92" Height="40" Grid.Column="1" Background="#FF5F93DE" Foreground="White" Click="Button_Click_2"/>
